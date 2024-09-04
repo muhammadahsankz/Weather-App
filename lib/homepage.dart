@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
-import 'package:lottie/lottie.dart';
 import 'package:weather/weather.dart';
 import 'package:weather_app/key.dart';
 
@@ -32,7 +30,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: RichText(
-            text: TextSpan(
+            text: const TextSpan(
                 text: 'Weather',
                 style: TextStyle(
                     fontSize: 25,
@@ -56,7 +54,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget buildUI() {
     if (_weather == null) {
-      return Center(
+      return const Center(
         child: SizedBox(
           height: 50,
           width: 50,
@@ -73,7 +71,7 @@ class _HomePageState extends State<HomePage> {
       return Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -103,22 +101,22 @@ class _HomePageState extends State<HomePage> {
   Widget locationHeader() {
     return Container(
       height: 50,
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       decoration: BoxDecoration(
           border: Border.all(), borderRadius: BorderRadius.circular(30)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(Icons.location_on),
+          const Icon(Icons.location_on),
           DropdownButton(
               alignment: Alignment.center,
               value: selectedCity,
               hint: Text(
                 _weather?.areaName ?? "",
-                style: TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20),
               ),
-              underline: SizedBox.shrink(),
+              underline: const SizedBox.shrink(),
               items: <String>[
                 'Karachi',
                 'Lahore',
@@ -177,7 +175,7 @@ class _HomePageState extends State<HomePage> {
       children: [
         Text(
           DateFormat("EEEE").format(now),
-          style: TextStyle(fontSize: 25, color: Colors.white),
+          style: const TextStyle(fontSize: 25, color: Colors.white),
         ),
         Row(
           mainAxisSize: MainAxisSize.max,
@@ -186,12 +184,12 @@ class _HomePageState extends State<HomePage> {
           children: [
             Text(
               DateFormat("h:mm a").format(now),
-              style: TextStyle(fontWeight: FontWeight.w700),
+              style: const TextStyle(fontWeight: FontWeight.w700),
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Text(
-              "${DateFormat("d/m/y").format(now)}",
-              style: TextStyle(fontWeight: FontWeight.w700),
+              DateFormat("d/m/y").format(now),
+              style: const TextStyle(fontWeight: FontWeight.w700),
             ),
           ],
         ),
@@ -214,12 +212,12 @@ class _HomePageState extends State<HomePage> {
       children: [
         Text(
           "${_weather?.temperature?.celsius?.toStringAsFixed(0)}° C",
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 80, fontWeight: FontWeight.w300, color: Colors.white),
         ),
         Text(
           _weather?.weatherDescription ?? "",
-          style: TextStyle(fontSize: 20),
+          style: const TextStyle(fontSize: 20),
         )
       ],
     );
@@ -242,10 +240,10 @@ class _HomePageState extends State<HomePage> {
                     'assets/images/max.png',
                     height: 30,
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   Text(
                     "Max: ${_weather?.tempMax?.celsius?.toStringAsFixed(0)}° C",
-                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    style: const TextStyle(fontSize: 15, color: Colors.white),
                   ),
                 ],
               ),
@@ -255,16 +253,16 @@ class _HomePageState extends State<HomePage> {
                     'assets/images/min.png',
                     height: 30,
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   Text(
                     "Min: ${_weather?.tempMin?.celsius?.toStringAsFixed(0)}° C",
-                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    style: const TextStyle(fontSize: 15, color: Colors.white),
                   ),
                 ],
               )
             ],
           ),
-          Divider(
+          const Divider(
             indent: 20,
             endIndent: 20,
           ),
@@ -279,10 +277,10 @@ class _HomePageState extends State<HomePage> {
                     'assets/images/wind.png',
                     height: 30,
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   Text(
                     "Wind: ${_weather?.windSpeed?.toStringAsFixed(0)}m/s",
-                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    style: const TextStyle(fontSize: 15, color: Colors.white),
                   ),
                 ],
               ),
@@ -292,16 +290,16 @@ class _HomePageState extends State<HomePage> {
                     'assets/images/humidity.png',
                     height: 30,
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   Text(
                     "Humidity: ${_weather?.humidity?.toStringAsFixed(0)}%",
-                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    style: const TextStyle(fontSize: 15, color: Colors.white),
                   ),
                 ],
               )
             ],
           ),
-          Divider(
+          const Divider(
             indent: 20,
             endIndent: 20,
           ),
@@ -312,27 +310,27 @@ class _HomePageState extends State<HomePage> {
             children: [
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.sunny,
                     color: Colors.yellow,
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   Text(
                     "Sunrise: ${DateFormat("h:mm a").format(DateTime.parse("${_weather?.sunrise!}"))}",
-                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    style: const TextStyle(fontSize: 15, color: Colors.white),
                   ),
                 ],
               ),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.sunny_snowing,
                     color: Colors.orange,
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   Text(
                     "Sunset: ${DateFormat("h:mm a").format(DateTime.parse("${_weather?.sunset!}"))}",
-                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    style: const TextStyle(fontSize: 15, color: Colors.white),
                   ),
                 ],
               ),
